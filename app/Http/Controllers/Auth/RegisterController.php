@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = ('/admin');
 
     /**
      * Create a new controller instance.
@@ -66,12 +66,48 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'role' => $data['role'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+        switch($data['role']) {
+            case 'Oggi': 
+                return User::create([
+                    'name' => $data['name'],
+                    'email' => $data['email'],
+                    'role' => $data['role'],
+                    'password' => Hash::make($data['password']),
+                    ]);
+            break;
+            case 'Gansta':                
+                return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'role' => $data['role'],
+                'password' => Hash::make($data['password']),
+                ]);
+            break;
+            case 'Dealer':
+                return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'role' => $data['role'],
+                'password' => Hash::make($data['password']),
+                ]);
+            break;
+            case 'Petit':
+                return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'role' => $data['role'],
+                'password' => Hash::make($data['password']),
+                ]);
+            break;
+            default:
+                $error = '<h1 class="alert alert-danger">Vous ne pouvez changer les rôles</h1>';
+                $redirectTo = ('auth.register');
+            break;
+
+        }
+
+
 
     }
 

@@ -37,7 +37,7 @@ class AdministrationController extends Controller
                 $users = User::all();
 
                 return view('admin.admin', [
-                    'users' => $users
+                    'users' => $users,
                 ]);
 
                 break;

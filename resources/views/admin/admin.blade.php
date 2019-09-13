@@ -9,6 +9,12 @@
 
 @section('content')
 
+@if (isset($error))
+    <div class="alert alert-danger">
+        {{ $error }}
+    </div>
+@endif
+
 <table class="table table-hover">
         <thead>
             <th>Nom IG</th>
